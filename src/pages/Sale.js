@@ -1,7 +1,12 @@
 import React from "react";
+import Products from "../components/Products";
 
 const Sale = () => {
-  return <div>Sale</div>;
+  return (
+    <div>
+      <Products />
+    </div>
+  );
 };
 
 export default Sale;

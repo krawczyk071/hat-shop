@@ -2,15 +2,15 @@ import React from "react";
 
 const HatBox = () => {
   return (
-    <div class="hat__box">
+    <div className="hat__box">
       <h1>Lorem ipsum dolor sit amet.</h1>
-      <div class="hat__more">
-        <div class="hat__reviews">Not Bad</div>
+      <div className="hat__more">
+        <div className="hat__reviews">Not Bad</div>
       </div>
-      <div class="hat__photo">
+      <div className="hat__photo">
         <img src="img/5751456.webp" />
       </div>
-      <div class="hat__photo-more">
+      <div className="hat__photo-more">
         <img src="img/5751456.webp" />
         <img src="img/5751456.webp" />
         <img src="img/5751456.webp" />

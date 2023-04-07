@@ -2,7 +2,7 @@ import React from "react";
 
 const Headline = () => {
   return (
-    <div class="headline">
+    <div className="headline">
       <h1>
         Explore the <span>best selection</span> of Baseball Caps online.
       </h1>

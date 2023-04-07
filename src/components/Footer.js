@@ -2,24 +2,24 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div class="footer">
-      <div class="footer__box">
-        <div class="footer__logo">
-          <div class="navbar__logo">
+    <div className="footer">
+      <div className="footer__box">
+        <div className="footer__logo">
+          <div className="navbar__logo">
             <span>BigHead</span>
           </div>
         </div>
 
-        <div class="footer__stats">
-          <div class="footer__stat">
+        <div className="footer__stats">
+          <div className="footer__stat">
             <h2>123</h2>
             <p>daily</p>
           </div>
-          <div class="footer__stat">
+          <div className="footer__stat">
             <h2>123</h2>
             <p>daily</p>
           </div>
-          <div class="footer__stat">
+          <div className="footer__stat">
             <h2>123</h2>
             <p>daily</p>
           </div>

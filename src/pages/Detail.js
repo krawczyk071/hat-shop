@@ -5,8 +5,8 @@ import HatBox from "../components/HatBox";
 
 const Detail = () => {
   return (
-    <div class="detail">
-      <div class="detail__box">
+    <div className="detail">
+      <div className="detail__box">
         <HatBox />
         <OrderBox />
       </div>
