@@ -13,7 +13,7 @@ const options = {
       "SportsLeague:NFL",
       "Color:Blue",
       // 'Silhouette:Baseball Cap'
-      "Silhouette:Beanie",
+      // "Silhouette:Beanie",
     ],
   },
   paramsSerializer: {

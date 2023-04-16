@@ -1,4 +1,4 @@
-const nbaTeams = [
+export const nbaTeams = [
   "Atlanta Hawks",
   "Boston Celtics",
   "Brooklyn Nets",
@@ -30,3 +30,5 @@ const nbaTeams = [
   "Utah Jazz",
   "Washington Wizards",
 ];
+
+export const hotData = {};

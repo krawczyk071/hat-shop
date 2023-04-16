@@ -1,13 +1,12 @@
 import React from "react";
 
-const OrderBox = () => {
+const OrderBox = ({ detail }) => {
   return (
     <div className="order__box">
-      <h1>33.44$</h1>
+      <h1>{detail.price.regularPrice.minPrice}$</h1>
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-        unde dicta, harum asperiores reiciendis voluptates illo eius ab
-        nesciunt. Ex!
+        This product is not eligible for coupons. However, you are able to earn
+        and redeem Kohl's Cash® and Kohl's Rewards® on this product.
       </p>
       <div className="qty">
         <div className="qty__add">+</div>

@@ -2,17 +2,29 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 
 import { fetchFromAPI } from "../utils/fetchFromAPI";
+import Loader from "./Loader";
 
 const Products = () => {
-  const [hats, setHats] = useState([1]);
+  const [hats, setHats] = useState({
+    data: {},
+    loading: true,
+    error: false,
+  });
   useEffect(() => {
     fetchFromAPI("products/list").then((data) => {
-      setHats(data.payload.products);
+      setHats({
+        data: data.payload.products,
+        loading: false,
+        error: false,
+      });
     });
   }, []);
 
-  const cards = hats.map((hat) => <Card key={hat.webID} hat={hat} />);
-  return <div>{cards}</div>;
+  if (hats.loading) {
+    return <Loader />;
+  }
+  const cards = hats.data.map((hat) => <Card key={hat.webID} hat={hat} />);
+  return !hats.loading ? <div className="cards__box">{cards}</div> : <Loader />;
 };
 
 export default Products;
