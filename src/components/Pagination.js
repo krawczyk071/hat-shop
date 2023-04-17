@@ -1,10 +1,23 @@
 import React from "react";
+import ReactPaginate from "react-paginate";
 
-const Pagination = ({ page, handleNext }) => {
+const Pagination = ({ pageCount, handlePageClick }) => {
   return (
-    <div className="pagination">
-      <h2 onClick={handleNext}>Next ({page.current})</h2>
-    </div>
+    <ReactPaginate
+      breakLabel="..."
+      nextLabel="next >"
+      onPageChange={handlePageClick}
+      pageRangeDisplayed={2}
+      marginPagesDisplayed={1}
+      pageCount={pageCount}
+      previousLabel="< previous"
+      renderOnZeroPageCount={null}
+      containerClassName={"pagination"}
+      pageLinkClassName={"page-number"}
+      previousLinkClassName={"page-number"}
+      nextLinkClassName={"page-number"}
+      activeLinkClassName={"active"}
+    />
   );
 };
 
