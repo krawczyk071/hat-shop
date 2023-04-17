@@ -1,7 +1,10 @@
-import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { cartContext } from "../context/cartContext";
 
 const Navbar = () => {
+  // const [cart, setCart] = useState([]);
+  const [cart, dispatch] = useContext(cartContext);
   return (
     <div className="header">
       <nav className="navbar layout-lg">
@@ -22,7 +25,13 @@ const Navbar = () => {
           </div>
         </div>
         <ul className="navbar__list">
-          <li className="navbar__item">Basket (1)</li>
+          <li className="navbar__item">
+            Basket (
+            {cart.reduce((acc, item) => {
+              return acc + item.qty;
+            }, 0)}
+            )
+          </li>
         </ul>
       </nav>
     </div>
