@@ -5,7 +5,7 @@ import { fetchFromAPI } from "../utils/fetchFromAPI";
 import Loader from "./Loader";
 import Pagination from "./Pagination";
 
-const Products = () => {
+const Products = ({ query }) => {
   const [itemOffset, setItemOffset] = useState(0);
   const [hats, setHats] = useState({
     data: {},
@@ -13,7 +13,7 @@ const Products = () => {
     error: false,
   });
   useEffect(() => {
-    fetchFromAPI(`products/list?offset=${itemOffset}`).then((data) => {
+    fetchFromAPI(`products/list?offset=${itemOffset}&${query}`).then((data) => {
       setHats({
         data: data.payload.products,
         pages: data.count,

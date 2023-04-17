@@ -7,6 +7,7 @@ import Detail from "./pages/Detail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/cartContext";
 import Confirmation from "./pages/Confirmation";
+import Filtered from "./pages/Filtered";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route exact path="/" element={<Homepage />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/sale" element={<Sale />} />
+              <Route path="/filtered" element={<Filtered />} />
               <Route path="/confirm" element={<Confirmation />} />
               <Route path="/detail/:id" element={<Detail />} />
             </Routes>

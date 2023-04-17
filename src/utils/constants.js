@@ -84,3 +84,39 @@ export const reviewData = [
     rating: 4.1,
   },
 ];
+export const filterData = [
+  {
+    items: [
+      { name: "Buy", value: "for-sale" },
+      { name: "Rent", value: "for-rent" },
+    ],
+    placeholder: "Purpose",
+    queryName: "purpose",
+  },
+  {
+    items: nbaTeams.map((t) => ({ name: t, value: t })),
+    placeholder: "Select Your Team",
+    queryName: "SportsTeam",
+  },
+];
+export const getFilterValues = (filterValues) => {
+  const { purpose, rentFrequency } = filterValues;
+
+  const values = [
+    {
+      name: "purpose",
+      value: purpose,
+    },
+    {
+      name: "rentFrequency",
+      value: rentFrequency,
+    },
+  ];
+  return values;
+};
+
+export const nbaFilter = {
+  items: nbaTeams.map((t) => ({ name: t, value: t })),
+  placeholder: "Select Your Team",
+  queryName: "SportsTeam",
+};

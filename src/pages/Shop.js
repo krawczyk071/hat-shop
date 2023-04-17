@@ -1,8 +1,9 @@
 import React from "react";
 
-import Card from "../components/Card";
 import Reviews from "../components/Reviews";
 import ProdReviews from "../components/ProdReviews";
+import Filter from "../components/Filter";
+import { nbaFilter } from "../utils/constants";
 const Shop = () => {
   return (
     <>
@@ -11,6 +12,7 @@ const Shop = () => {
       </div>
       <Reviews />
       <ProdReviews id={4044026} />
+      <Filter data={nbaFilter} />
     </>
   );
 };

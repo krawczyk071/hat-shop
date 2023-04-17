@@ -10,8 +10,8 @@ const options = {
       "Brand:New Era",
       "Product:Hats",
       // "SportsTeam:Chicago Bulls",
-      "SportsLeague:NFL",
-      "Color:Blue",
+      // "SportsLeague:NFL",
+      // "Color:Blue",
       // 'Silhouette:Baseball Cap'
       // "Silhouette:Beanie",
     ],
