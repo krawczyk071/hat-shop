@@ -4,8 +4,8 @@ const BASE_URL = "https://kohls.p.rapidapi.com";
 
 const options = {
   params: {
-    limit: 24,
-    offset: 1,
+    // limit: 24,
+    // offset: 1,
     dimensionValueID: [
       "Brand:New Era",
       "Product:Hats",
