@@ -8,7 +8,7 @@ const Related = () => {
   const [related, SetRelated] = useState({ data: {}, loading: true });
   useEffect(() => {
     fetchFromAPI(
-      `products/list?limit=5&offset=${Math.floor(Math.random() * 10)}`
+      `products/list?limit=5&offset=${Math.floor(Math.random() * 50)}`
     ).then((data) =>
       SetRelated({ data: data.payload.products, loading: false })
     );

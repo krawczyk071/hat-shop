@@ -4,21 +4,21 @@ import Card from "./Card";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import Loader from "./Loader";
 
-const Products = () => {
+const Products = ({ page }) => {
   const [hats, setHats] = useState({
     data: {},
     loading: true,
     error: false,
   });
   useEffect(() => {
-    fetchFromAPI("products/list").then((data) => {
+    fetchFromAPI(`products/list?offset=${page * 24}`).then((data) => {
       setHats({
         data: data.payload.products,
         loading: false,
         error: false,
       });
     });
-  }, []);
+  }, [page]);
 
   if (hats.loading) {
     return <Loader />;
