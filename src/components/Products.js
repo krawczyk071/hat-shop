@@ -24,7 +24,7 @@ const Products = () => {
     return <Loader />;
   }
   const cards = hats.data.map((hat) => <Card key={hat.webID} hat={hat} />);
-  return !hats.loading ? <div className="cards__box">{cards}</div> : <Loader />;
+  return <div className="cards__box">{cards}</div>;
 };
 
 export default Products;

@@ -11,8 +11,6 @@ const Homepage = () => {
       <Hero />
       <Top />
       <Headline />
-
-      <Cart />
       <Banner />
     </>
   );

@@ -1,9 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { cartContext } from "../context/cartContext";
+import CartBar from "./CartBar";
 
 const Navbar = () => {
-  // const [cart, setCart] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
+  function cartToggler() {
+    setCartOpen((prev) => !prev);
+  }
   const [cart, dispatch] = useContext(cartContext);
   return (
     <div className="header">
@@ -25,7 +29,7 @@ const Navbar = () => {
           </div>
         </div>
         <ul className="navbar__list">
-          <li className="navbar__item">
+          <li className="navbar__item" onClick={cartToggler}>
             Basket (
             {cart.reduce((acc, item) => {
               return acc + item.qty;
@@ -34,6 +38,7 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
+      <CartBar cartOpen={cartOpen} cartToggler={cartToggler} />
     </div>
   );
 };

@@ -5,14 +5,18 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART": {
       const { item } = action.payload;
-      if (!state.some((sitem) => sitem.id === item.webID)) {
+      if (!state.some((sitem) => sitem.webID === item.webID)) {
         return [
           ...state,
-          { id: item.webID, qty: 1, price: item.price.regularPrice.minPrice },
+          {
+            webID: item.webID,
+            qty: 1,
+            price: item.price.regularPrice.minPrice,
+          },
         ];
       } else {
         return state.map((sitem) => {
-          if (sitem.id === item.webID) {
+          if (sitem.webID === item.webID) {
             return { ...sitem, qty: sitem.qty + 1 };
           } else {
             return sitem;
@@ -23,19 +27,22 @@ const reducer = (state, action) => {
     case "SUB_FROM_CART": {
       const { item } = action.payload;
       if (
-        !state.some((sitem) => sitem.id === item.webID) ||
-        state.find((sitem) => sitem.id === item.webID).qty === 0
+        !state.some((sitem) => sitem.webID === item.webID) ||
+        state.find((sitem) => sitem.webID === item.webID).qty === 0
       ) {
         return state;
       } else {
         return state.map((sitem) => {
-          if (sitem.id === item.webID) {
+          if (sitem.webID === item.webID) {
             return { ...sitem, qty: sitem.qty - 1 };
           } else {
             return sitem;
           }
         });
       }
+    }
+    case "CLEAR": {
+      return stateInit;
     }
     default:
       return state;

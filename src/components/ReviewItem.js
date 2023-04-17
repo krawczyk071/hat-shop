@@ -1,14 +1,10 @@
 import React from "react";
+import Stars from "./Stars";
 
 const ReviewItem = ({ review }) => {
   return (
     <div className="review__item">
-      <div className="rating">
-        <i className="fa-solid fa-star"></i>
-        <i className="fa-solid fa-star"></i>
-        <i className="fa-solid fa-star"></i>
-        <i className="fa-solid fa-star"></i>
-      </div>
+      <Stars rating={review.rating} />
       <p>{review.short}</p>
       <p>{review.name}</p>
     </div>

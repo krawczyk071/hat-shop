@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { cartContext } from "../context/cartContext";
+import QtySelector from "./QtySelector";
 
 const OrderBox = ({ detail }) => {
   const [cart, dispatch] = useContext(cartContext);
@@ -11,31 +12,8 @@ const OrderBox = ({ detail }) => {
         This product is not eligible for coupons. However, you are able to earn
         and redeem Kohl's Cash® and Kohl's Rewards® on this product.
       </p>
-      <div className="qty">
-        <div
-          className="qty__add"
-          onClick={() =>
-            dispatch({ type: "ADD_TO_CART", payload: { item: detail } })
-          }
-        >
-          +
-        </div>
-        <div className="qty__num">
-          <input
-            type="text"
-            className="ipt"
-            value={cart.find((i) => i.id === detail.webID)?.qty || 0}
-          />
-        </div>
-        <div
-          className="qty__sub"
-          onClick={() =>
-            dispatch({ type: "SUB_FROM_CART", payload: { item: detail } })
-          }
-        >
-          -
-        </div>
-      </div>
+      <QtySelector product={detail} />
+
       <button className="btn">Add to order</button>
     </div>
   );

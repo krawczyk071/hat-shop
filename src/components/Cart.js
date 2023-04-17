@@ -1,18 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import CartItem from "./CartItem";
+import { cartContext } from "../context/cartContext";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const [cart, dispatch] = useContext(cartContext);
+  const navigate = useNavigate();
+
+  const cartItems = cart.map((item) => <CartItem item={item} />);
+  const total = cart.reduce((acc, itm) => {
+    return acc + itm.qty * itm.price;
+  }, 0);
+  function handleOrder() {
+    clearCart();
+    navigate(`/confirm?${total}`);
+  }
+  function clearCart() {
+    dispatch({ type: "CLEAR" });
+  }
   return (
     <div className="cart">
       <div className="cart__box">
         <h1>Cart:</h1>
-        <div className="cart__list">
-          <CartItem />
-          <CartItem />
+        <div className="cart__list">{cartItems}</div>
+        <div className="cart__total">
+          <h2>Total:</h2>
+          <h2>{total}</h2>
         </div>
-        <button className="btn">Order</button>
-        <button className="btn cart__btn--danger">Clear</button>
+
+        <button className="btn" onClick={handleOrder}>
+          Order
+        </button>
+        <button className="btn cart__btn--danger" onClick={clearCart}>
+          Clear
+        </button>
       </div>
     </div>
   );
