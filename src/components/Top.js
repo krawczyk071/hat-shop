@@ -1,23 +1,23 @@
 import React from "react";
+import { hotData } from "../utils/constants";
+import { useNavigate } from "react-router-dom";
+const TopItem = ({ hat }) => {
+  const navigate = useNavigate();
 
-const TopItem = () => {
   return (
-    <div className="top__item">
-      <img src="./img/4031142.webp" alt="" />
-      <p>13.44$</p>
+    <div className="top__item" onClick={() => navigate(`/detail/${hat.webID}`)}>
+      <img src={hat.url} alt="" />
+      <p>{hat.price}$</p>
     </div>
   );
 };
 
 const Top = () => {
+  const hots = hotData.map((h) => <TopItem hat={h} />);
   return (
     <div className="top">
       <h2>Hottest Items:</h2>
-      <div className="top__box">
-        <TopItem />
-        <TopItem />
-        <TopItem />
-      </div>
+      <div className="top__box">{hots}</div>
     </div>
   );
 };

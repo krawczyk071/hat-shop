@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReviewItem = () => {
+const ReviewItem = ({ review }) => {
   return (
     <div className="review__item">
       <div className="rating">
@@ -9,11 +9,8 @@ const ReviewItem = () => {
         <i className="fa-solid fa-star"></i>
         <i className="fa-solid fa-star"></i>
       </div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ipsum
-        sit dolore corporis odio adipisci assumenda inventore nam doloribus cum!
-      </p>
-      <p>Lorem, ipsum.</p>
+      <p>{review.short}</p>
+      <p>{review.name}</p>
     </div>
   );
 };
