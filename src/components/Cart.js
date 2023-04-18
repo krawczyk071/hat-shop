@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import CartItem from "./CartItem";
 import { cartContext } from "../context/cartContext";
 import { useNavigate } from "react-router-dom";
+import { formatPrice } from "../utils/helpers.js";
 
 const Cart = () => {
   const [cart, dispatch] = useContext(cartContext);
@@ -10,7 +11,7 @@ const Cart = () => {
 
   const cartItems = cart.map((item) => <CartItem item={item} />);
   const total = cart.reduce((acc, itm) => {
-    return acc + itm.qty * itm.price;
+    return formatPrice((acc + itm.qty * itm.price) * 100);
   }, 0);
   function handleOrder() {
     clearCart();
@@ -22,7 +23,7 @@ const Cart = () => {
   return (
     <div className="cart">
       <div className="cart__box">
-        <h1>Cart:</h1>
+        <h1>Your items:</h1>
         <div className="cart__list">{cartItems}</div>
         <div className="cart__total">
           <h2>Total:</h2>

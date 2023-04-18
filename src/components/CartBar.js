@@ -6,7 +6,7 @@ const CartBar = ({ cartOpen, cartToggler }) => {
     <div
       className={`cartbar ${!cartOpen ? "cartbar--closed" : "cartbar--opened"}`}
     >
-      <div onClick={cartToggler}>
+      <div className="cartbar__closer" onClick={cartToggler}>
         Hide <i className="fa-regular fa-eye-slash"></i>
       </div>
       <Cart />

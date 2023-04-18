@@ -12,6 +12,7 @@ const reducer = (state, action) => {
             webID: item.webID,
             qty: 1,
             price: item.price.regularPrice.minPrice,
+            productTitle: item.productTitle,
           },
         ];
       } else {

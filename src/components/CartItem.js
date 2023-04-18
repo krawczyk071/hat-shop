@@ -10,8 +10,12 @@ const CartItem = ({ item }) => {
           alt=""
         />
       </div>
-      <h3>{item.webID}</h3>
-      <QtySelector product={item} where="cart" />
+      <h3 className="cart__list__item__name">{item.productTitle}</h3>
+      <QtySelector
+        product={item}
+        where="cart"
+        className="cart__list__item__qty"
+      />
       {/* <div className="cart__list__item__qty">
         <div className="cart__list__item__qty__pm">+</div>
         <div className="cart__list__item__qty__num">
