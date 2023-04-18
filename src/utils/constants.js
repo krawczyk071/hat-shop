@@ -116,7 +116,19 @@ export const getFilterValues = (filterValues) => {
 };
 
 export const nbaFilter = {
-  items: nbaTeams.map((t) => ({ name: t, value: t })),
+  items: nbaTeams.map((t) => ({ name: t, value: "SportsTeam:" + t })),
   placeholder: "Select Your Team",
-  queryName: "SportsTeam",
+  queryName: "dimensionValueID",
 };
+
+export const colors = [
+  "Black",
+  "Blue",
+  "Green",
+  "Grey",
+  "Red",
+  "White",
+  "Purple",
+  "Brown",
+  "Orange",
+];

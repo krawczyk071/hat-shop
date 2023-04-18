@@ -21,7 +21,7 @@ const Products = ({ query }) => {
         error: false,
       });
     });
-  }, [itemOffset]);
+  }, [query, itemOffset]);
 
   if (hats.loading) {
     return <Loader />;
@@ -40,7 +40,7 @@ const Products = ({ query }) => {
   return (
     <div className="products">
       <div className="cards__box">{cards}</div>
-      <Pagination pageCount={pageCount} handlePageClick={handlePageClick} />;
+      <Pagination pageCount={pageCount} handlePageClick={handlePageClick} />
     </div>
   );
 };

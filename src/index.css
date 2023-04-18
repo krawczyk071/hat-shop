@@ -823,3 +823,13 @@ p {
   color: #00a8ff;
   background: #fff;
 }
+.nbafilter {
+  margin: 2rem 0;
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.nbafilter h1 {
+  width: 100%;
+}

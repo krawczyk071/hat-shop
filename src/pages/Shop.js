@@ -1,19 +1,19 @@
-import React from "react";
-
-import Reviews from "../components/Reviews";
-import ProdReviews from "../components/ProdReviews";
-import Filter from "../components/Filter";
-import { nbaFilter } from "../utils/constants";
+import React, { useEffect, useState } from "react";
+import NbaFilter from "../components/NbaFilter";
+import Products from "../components/Products";
+import { useSearchParams } from "react-router-dom";
 const Shop = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [team, setTeam] = useState("");
+
+  useEffect(() => {
+    setTeam(searchParams.get("dimensionValueID"));
+  }, [searchParams]);
   return (
-    <>
-      <div className="cards">
-        <div className="cards__box">cards</div>
-      </div>
-      <Reviews />
-      <ProdReviews id={4044026} />
-      <Filter data={nbaFilter} />
-    </>
+    <div>
+      <NbaFilter />
+      <Products query={`dimensionValueID=${team}`} />
+    </div>
   );
 };
 
