@@ -8,7 +8,7 @@ const HatBox = ({ detail }) => {
 
   return (
     <div className="hat__box">
-      <h1>{detail.brand}</h1>
+      <h1>{detail.productTitle}</h1>
       <div className="hat__more">
         <div className="hat__reviews">
           Rating: {detail.avgRating} ({detail.ratingCount})
@@ -18,8 +18,9 @@ const HatBox = ({ detail }) => {
         <img src={detail.images[0].url} alt="main" />
       </div>
       <div className="hat__photo-more">{photos}</div>
-      <h2>{detail.productTitle}</h2>
+      <h2>{detail.brand}</h2>
       <div
+        className="hat__desc"
         dangerouslySetInnerHTML={{ __html: detail.description.longDescription }}
       ></div>
     </div>

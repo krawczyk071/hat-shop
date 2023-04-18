@@ -35,9 +35,11 @@ const Detail = () => {
     <div className="detail">
       <div className="detail__box">
         <HatBox detail={detail.data} />
-        <OrderBox detail={detail.data} />
+        <div className="detail__sidebar">
+          <OrderBox detail={detail.data} />
+          <Related />
+        </div>
       </div>
-      <Related />
     </div>
   ) : (
     <Loader />

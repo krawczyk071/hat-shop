@@ -35,11 +35,13 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="navbar__item" onClick={cartToggler}>
-            Basket (
-            {cart.reduce((acc, item) => {
-              return acc + item.qty;
-            }, 0)}
-            )
+            <a href="#">
+              Basket (
+              {cart.reduce((acc, item) => {
+                return acc + item.qty;
+              }, 0)}
+              )
+            </a>
           </li>
         </ul>
       </nav>

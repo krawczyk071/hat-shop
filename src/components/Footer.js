@@ -12,20 +12,20 @@ const Footer = () => {
 
         <div className="footer__stats">
           <div className="footer__stat">
-            <h2>123</h2>
-            <p>daily</p>
+            <h2>456</h2>
+            <p>hats on SALE now</p>
           </div>
           <div className="footer__stat">
-            <h2>123</h2>
-            <p>daily</p>
+            <h2>1456</h2>
+            <p>baseball cap models</p>
           </div>
           <div className="footer__stat">
-            <h2>123</h2>
-            <p>daily</p>
+            <h2>NBA NFL NHL</h2>
+            <p>licensed leagues</p>
           </div>
         </div>
-        <p>Szymon © 2023</p>
-        <p>Privacy Policy | Refund Policy</p>
+        <p className="footer__text">Szymon Krawczyk © 2023</p>
+        <p className="footer__text">Privacy Policy | Refund Policy</p>
       </div>
     </div>
   );

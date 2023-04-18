@@ -3,7 +3,7 @@ import Products from "../components/Products";
 
 const Filtered = () => {
   return (
-    <div>
+    <div className="winter">
       <Products query={`dimensionValueID=Silhouette:Beanie`} />
     </div>
   );

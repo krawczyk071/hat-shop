@@ -6,8 +6,10 @@ const TopItem = ({ hat }) => {
 
   return (
     <div className="top__item" onClick={() => navigate(`/detail/${hat.webID}`)}>
-      <img src={hat.url} alt="" />
-      <p>{hat.price}$</p>
+      <div className="top__img">
+        <img src={hat.url} alt="" />
+      </div>
+      <p>New Era {hat.price}$</p>
     </div>
   );
 };
