@@ -98,6 +98,17 @@ ul {
 }
 
 body {
+  /* display: flex;
+  flex-direction: column; */
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -173,7 +184,7 @@ body {
 
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border-top: 16px solid var(--secondary); /* Blue */
   border-radius: 50%;
   width: 150px;
   height: 150px;
@@ -354,6 +365,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 .navbar__logo span {
   font-family: "Modak", cursive;
@@ -395,6 +407,12 @@ header {
 }
 section {
   background: wheat;
+  flex: 1;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .hero {
   display: flex;
@@ -427,7 +445,7 @@ section {
   box-shadow: 0 15px 20px 0 rgba(234, 32, 39, 0.3);
 }
 .hero__text {
-  flex: 1 1 60%;
+  flex: 1 1 55%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -436,6 +454,7 @@ section {
 }
 .hero__text .btn {
   /* flex: 0; */
+  background: var(--secondary);
 }
 
 h1,
@@ -452,6 +471,7 @@ h3 {
 
 .top,
 .reviews {
+  margin: 2rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -463,7 +483,7 @@ h3 {
   grid-template-columns: repeat(3, 1fr);
 }
 .review__box {
-  height: 240px;
+  /* height: 240px; */
   overflow: hidden;
 }
 .top__item {
@@ -491,6 +511,7 @@ h3 {
 
 .headline {
   text-align: center;
+  margin: 2rem 0;
 }
 .headline h1 {
   font-size: 3rem;
@@ -522,6 +543,7 @@ h3 {
   justify-items: center;
 }
 .footer {
+  flex-shrink: 0;
   position: relative;
   isolation: isolate;
   color: #fffafa;
@@ -745,10 +767,11 @@ p {
 }
 
 .loader__main {
-  /* display: flex;
+  flex: 1;
+  display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column; */
+  flex-direction: column;
 }
 
 :root {
@@ -830,6 +853,29 @@ p {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.nbafilter h1 {
+.nbafilter h1,
+.colorsfilter h1 {
   width: 100%;
+}
+.colorsfilter {
+  margin: 2rem 0;
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.colorsfilter__color {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.colorsfilter__color a,
+a:hover,
+a:visited,
+a:link {
+  color: #000;
+  text-decoration: none;
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import NbaFilter from "../components/NbaFilter";
 import Products from "../components/Products";
 import { useSearchParams } from "react-router-dom";
+import ColorsFilter from "../components/ColorsFilter";
 const Shop = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [team, setTeam] = useState("");
@@ -10,10 +10,10 @@ const Shop = () => {
     setTeam(searchParams.get("dimensionValueID"));
   }, [searchParams]);
   return (
-    <div>
-      <NbaFilter />
+    <>
+      <ColorsFilter />
       <Products query={`dimensionValueID=${team}`} />
-    </div>
+    </>
   );
 };
 

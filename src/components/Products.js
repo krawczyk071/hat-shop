@@ -4,6 +4,7 @@ import Card from "./Card";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import Loader from "./Loader";
 import Pagination from "./Pagination";
+import { products as productsEx } from "../utils/apiExample";
 
 const Products = ({ query }) => {
   const [itemOffset, setItemOffset] = useState(0);
@@ -13,14 +14,23 @@ const Products = ({ query }) => {
     error: false,
   });
   useEffect(() => {
-    fetchFromAPI(`products/list?offset=${itemOffset}&${query}`).then((data) => {
-      setHats({
-        data: data.payload.products,
-        pages: data.count,
-        loading: false,
-        error: false,
+    fetchFromAPI(`products/list?offset=${itemOffset}&${query}`)
+      .then((data) => {
+        setHats({
+          data: data.payload.products,
+          pages: data.count,
+          loading: false,
+          error: false,
+        });
+      })
+      .catch((err) => {
+        setHats({
+          data: productsEx,
+          pages: 100,
+          loading: false,
+          error: err,
+        });
       });
-    });
   }, [query, itemOffset]);
 
   if (hats.loading) {

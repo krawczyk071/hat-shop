@@ -20,7 +20,7 @@ const Navbar = () => {
             <Link to={"/shop"}>Explore</Link>
           </li>
           <li className="navbar__item">
-            <Link to={"/sale"}>Sale</Link>
+            <Link to={"/sale"}>NBAedition</Link>
           </li>
         </ul>
         <div className="navbar__logo">
@@ -29,6 +29,11 @@ const Navbar = () => {
           </div>
         </div>
         <ul className="navbar__list">
+          <li className="navbar__item">
+            <Link to={"/filtered"}>
+              WinterSpecial <i className="fa-regular fa-snowflake"></i>
+            </Link>
+          </li>
           <li className="navbar__item" onClick={cartToggler}>
             Basket (
             {cart.reduce((acc, item) => {

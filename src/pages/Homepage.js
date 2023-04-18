@@ -12,9 +12,9 @@ const Homepage = () => {
       <Hero />
       <Top />
 
-      <Reviews />
       <Headline />
       <Banner />
+      <Reviews />
     </>
   );
 };

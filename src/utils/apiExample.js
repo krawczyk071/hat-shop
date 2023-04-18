@@ -1,73 +1,76 @@
-const products = {
-  image: {
-    width: "180",
-    url: "https://media.kohlsimg.com/is/image/kohls/6235047?wid=180&hei=180&op_sharpen=1",
-    height: "180",
-  },
-  availableColr: ["Ynk Navy"],
-  sephoraProduct: false,
-  rating: {
-    count: null,
-    avgRating: null,
-  },
-  valueAddedIcons: [],
-  prodType: "product",
-  ypEligible: false,
-  sponsoredData: null,
-  valueAddedBadges: null,
-  isBossAvailable: false,
-  productTitle: "Women's New Era Navy New York Yankees Sherpa Full-Zip Jacket",
-  isAvailableforShip: true,
-  seoURL:
-    "/product/prd-6235047/womens-new-era-navy-new-york-yankees-sherpa-full-zip-jacket.jsp",
-  webID: "6235047",
-  couponEligible: false,
-  isVGC: false,
-  variations: "Size",
-  storeNumbers: [
-    {
-      value: "873",
+export const products = [
+  {
+    image: {
+      width: "180",
+      url: "https://media.kohlsimg.com/is/image/kohls/6235047?wid=180&hei=180&op_sharpen=1",
+      height: "180",
     },
-  ],
-  swatchImages: [],
-  displayColor: ["Ynk Navy"],
-  prices: [
-    {
-      isCurrentPrice: true,
-      salePriceType: null,
-      isSuppressed: false,
-      salePrice: {
-        minPrice: 59.99,
-        maxPrice: null,
-      },
-      salePriceStatus: "sale",
-      regularPrice: {
-        minPrice: 74.99,
-        maxPrice: null,
-      },
-      regularPriceType: "Regular",
-      displayEndDateTime: "2023/04/08 21:38:49 -0700",
-      purchaseBegDateTime: "2023/04/07 07:10:50 -0700",
-      purchaseEndDateTime: "2023/04/08 21:38:49 -0700",
-      priceCode: "Normal",
-      suppressedPricingText: null,
-      promotions: {
-        tieredPrice: [],
-        bogo: [],
-        group: [],
-      },
-      displayBegDateTime: "2023/04/07 07:10:50 -0700",
-      promotion: null,
-      statusCode: "20",
-      isPriceInstore: false,
+    availableColr: ["Ynk Navy"],
+    sephoraProduct: false,
+    rating: {
+      count: null,
+      avgRating: null,
     },
-  ],
-  boosted: false,
-  altImageUrl: null,
-  isAvailableforPickUp: false,
-};
+    valueAddedIcons: [],
+    prodType: "product",
+    ypEligible: false,
+    sponsoredData: null,
+    valueAddedBadges: null,
+    isBossAvailable: false,
+    productTitle:
+      "Women's New Era Navy New York Yankees Sherpa Full-Zip Jacket",
+    isAvailableforShip: true,
+    seoURL:
+      "/product/prd-6235047/womens-new-era-navy-new-york-yankees-sherpa-full-zip-jacket.jsp",
+    webID: "6235047",
+    couponEligible: false,
+    isVGC: false,
+    variations: "Size",
+    storeNumbers: [
+      {
+        value: "873",
+      },
+    ],
+    swatchImages: [],
+    displayColor: ["Ynk Navy"],
+    prices: [
+      {
+        isCurrentPrice: true,
+        salePriceType: null,
+        isSuppressed: false,
+        salePrice: {
+          minPrice: 59.99,
+          maxPrice: null,
+        },
+        salePriceStatus: "sale",
+        regularPrice: {
+          minPrice: 74.99,
+          maxPrice: null,
+        },
+        regularPriceType: "Regular",
+        displayEndDateTime: "2023/04/08 21:38:49 -0700",
+        purchaseBegDateTime: "2023/04/07 07:10:50 -0700",
+        purchaseEndDateTime: "2023/04/08 21:38:49 -0700",
+        priceCode: "Normal",
+        suppressedPricingText: null,
+        promotions: {
+          tieredPrice: [],
+          bogo: [],
+          group: [],
+        },
+        displayBegDateTime: "2023/04/07 07:10:50 -0700",
+        promotion: null,
+        statusCode: "20",
+        isPriceInstore: false,
+      },
+    ],
+    boosted: false,
+    altImageUrl: null,
+    isAvailableforPickUp: false,
+  },
+];
 
-const details = {
+export const details = {
   payload: {
     products: [
       {
