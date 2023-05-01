@@ -15,6 +15,7 @@ const Detail = () => {
     error: false,
   });
   useEffect(() => {
+    setDetail((prev) => ({ ...prev, loading: true }));
     fetchFromAPI(`products/detail?webID=${id}`)
       .then((data) => {
         setDetail({
@@ -24,6 +25,7 @@ const Detail = () => {
         });
       })
       .catch((err) => {
+        console.log("APIfail", err);
         setDetail({
           data: detailsEx.payload.products[0],
           loading: false,

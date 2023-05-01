@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { cartContext } from "../context/cartContext";
+// import React, { useContext } from "react";
+// import { cartContext } from "../context/cartContext";
 import QtySelector from "./QtySelector";
 import { formatPrice } from "../utils/helpers";
 
 const OrderBox = ({ detail }) => {
-  const [cart, dispatch] = useContext(cartContext);
+  // const [cart, dispatch] = useContext(cartContext);
 
   return (
     <div className="order__box">

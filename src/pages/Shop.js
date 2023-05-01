@@ -3,7 +3,7 @@ import Products from "../components/Products";
 import { useSearchParams } from "react-router-dom";
 import ColorsFilter from "../components/ColorsFilter";
 const Shop = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [team, setTeam] = useState("");
 
   useEffect(() => {

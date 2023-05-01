@@ -9,9 +9,13 @@ const Card = ({ hat }) => {
       className="card__item"
       onClick={() => navigate(`/detail/${hat.webID}`)}
     >
-      <img src={hat.image ? hat.image.url : "non"} alt="" />
-      <h3>{formatPrice(hat.prices[0].regularPrice.minPrice * 100)}</h3>
-      <p>{hat.productTitle}</p>
+      <div className="card__item__img">
+        <img src={hat.image ? hat.image.url : "non"} alt="" />
+      </div>
+      <h3 className="card__item__price">
+        {formatPrice(hat.prices[0].regularPrice.minPrice * 100)}
+      </h3>
+      <p className="card__item__text">{hat.productTitle}</p>
     </div>
   );
 };

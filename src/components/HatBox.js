@@ -4,7 +4,7 @@ const HatBox = ({ detail }) => {
   const photos = detail.altImages
     .map((i) => i.url.replace(/=50/g, "=180"))
     .slice(0, -1)
-    .map((url) => <img src={url} alt="additional" />);
+    .map((url) => <img src={url} key={url} alt="additional" />);
 
   return (
     <div className="hat__box">

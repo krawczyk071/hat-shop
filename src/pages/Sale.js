@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import NbaFilter from "../components/NbaFilter";
 
 const Sale = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [team, setTeam] = useState("");
 
   useEffect(() => {

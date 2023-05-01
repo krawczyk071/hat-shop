@@ -14,6 +14,9 @@ const Products = ({ query }) => {
     error: false,
   });
   useEffect(() => {
+    console.log("eff fired");
+    // loading another page
+    setHats((prev) => ({ ...prev, loading: true }));
     fetchFromAPI(`products/list?offset=${itemOffset}&${query}`)
       .then((data) => {
         setHats({
@@ -24,6 +27,7 @@ const Products = ({ query }) => {
         });
       })
       .catch((err) => {
+        console.log("API error", err);
         setHats({
           data: productsEx,
           pages: 100,
@@ -33,23 +37,28 @@ const Products = ({ query }) => {
       });
   }, [query, itemOffset]);
 
-  if (hats.loading) {
-    return <Loader />;
-  }
-
   const allItems = hats.pages;
   const itemsPerPage = 24;
   const pageCount = Math.ceil(allItems / itemsPerPage);
 
   const handlePageClick = (event) => {
+    console.log("ev", event);
     const newOffset = (event.selected * itemsPerPage) % allItems;
     setItemOffset(newOffset);
+    window.scrollTo(0, 0);
   };
 
-  const cards = hats.data.map((hat) => <Card key={hat.webID} hat={hat} />);
   return (
     <div className="products">
-      <div className="cards__box">{cards}</div>
+      {hats.loading ? (
+        <Loader />
+      ) : (
+        <div className="cards__box">
+          {hats.data.map((hat) => (
+            <Card key={hat.webID} hat={hat} />
+          ))}
+        </div>
+      )}
       <Pagination pageCount={pageCount} handlePageClick={handlePageClick} />
     </div>
   );

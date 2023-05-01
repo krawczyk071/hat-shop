@@ -1,39 +1,39 @@
-import React, { useState } from "react";
-import { filterData } from "../utils/constants";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import React from "react";
+// import { filterData } from "../utils/constants";
+import { useSearchParams } from "react-router-dom";
 
-const FilterMany = () => {
-  const navigate = useNavigate();
-  const [filters] = useState(filterData);
-  return (
-    <div className="filter-bar">
-      {filters.map((filter) => (
-        <div className="selector" key={filter.queryName}>
-          <div className="select">
-            <select
-              id="standard-select"
-              onChange={(e) =>
-                navigate(`?${filter.queryName}=${e.target.value}`)
-              }
-              placeholder={filter.placeholder}
-            >
-              {filter?.items?.map((item) => (
-                <option value={item.value} key={item.value}>
-                  {item.name}
-                </option>
-              ))}
-            </select>
-            <span className="focus"></span>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
+// const FilterMany = () => {
+//   const navigate = useNavigate();
+//   const [filters] = useState(filterData);
+//   return (
+//     <div className="filter-bar">
+//       {filters.map((filter) => (
+//         <div className="selector" key={filter.queryName}>
+//           <div className="select">
+//             <select
+//               id="standard-select"
+//               onChange={(e) =>
+//                 navigate(`?${filter.queryName}=${e.target.value}`)
+//               }
+//               placeholder={filter.placeholder}
+//             >
+//               {filter?.items?.map((item) => (
+//                 <option value={item.value} key={item.value}>
+//                   {item.name}
+//                 </option>
+//               ))}
+//             </select>
+//             <span className="focus"></span>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
 
 const Filter = ({ data }) => {
   // const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
 
   return (
     <div className="filter-bar">

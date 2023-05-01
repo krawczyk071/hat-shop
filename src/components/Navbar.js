@@ -8,7 +8,7 @@ const Navbar = () => {
   function cartToggler() {
     setCartOpen((prev) => !prev);
   }
-  const [cart, dispatch] = useContext(cartContext);
+  const [cart] = useContext(cartContext);
   return (
     <div className="header">
       <nav className="navbar layout-lg">
@@ -35,13 +35,13 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="navbar__item" onClick={cartToggler}>
-            <a href="#">
+            <div className="likeA">
               Basket (
               {cart.reduce((acc, item) => {
                 return acc + item.qty;
               }, 0)}
               )
-            </a>
+            </div>
           </li>
         </ul>
       </nav>

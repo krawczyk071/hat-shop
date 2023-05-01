@@ -21,6 +21,7 @@ const QtySelector = ({ product, where }) => {
           type="text"
           className="ipt"
           value={cart.find((i) => i.webID === product.webID)?.qty || 0}
+          readOnly
         />
       </div>
       <div

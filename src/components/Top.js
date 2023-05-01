@@ -15,7 +15,7 @@ const TopItem = ({ hat }) => {
 };
 
 const Top = () => {
-  const hots = hotData.map((h) => <TopItem hat={h} />);
+  const hots = hotData.map((h) => <TopItem key={h.webID} hat={h} />);
   return (
     <div className="top">
       <h2>Hottest Items:</h2>
