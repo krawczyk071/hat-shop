@@ -1,0 +1,47 @@
+.hero {
+  display: flex;
+  &__photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__text {
+    flex: 1 1 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2rem;
+    .btn {
+      /* flex: 0; */
+      background: $secondary;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 900;
+    }
+  }
+}
+
+.thecap {
+  flex: 0 0 450px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  isolation: isolate;
+  transform: translate(-30px);
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translate(30px);
+    background: linear-gradient(180deg, #061161, #aa090e);
+
+    border-radius: 50%;
+    margin: 1rem;
+    z-index: -1;
+    box-shadow: 0 15px 20px 0 rgba(234, 32, 39, 0.3);
+  }
+}

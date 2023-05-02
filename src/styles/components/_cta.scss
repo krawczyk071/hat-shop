@@ -1,0 +1,26 @@
+.headline {
+  text-align: center;
+  margin: 2rem 0;
+  h1 {
+    font-size: 3rem;
+  }
+  span {
+    color: $secondary;
+  }
+}
+
+.banner {
+  background: url(../../public/img/cesar-leon-qQaWk1rQCzo-unsplash.jpg);
+  background-position: center 20%;
+  background-size: cover;
+  &__box {
+    font-size: 3rem;
+
+    color: #fffafa;
+    display: flex;
+    padding: 1rem;
+    h1 {
+      flex: 0 0 50%;
+    }
+  }
+}

@@ -1,0 +1,129 @@
+.detail {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+  &__box {
+    display: flex;
+  }
+  &__sidebar {
+    flex: 1 1 40%;
+
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.hat {
+  &__box {
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
+  &__more {
+    font-size: 0.7rem;
+    /* justify-self: flex-end; */
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__reviews {
+    margin: 0 1rem;
+  }
+  &__photo {
+    /* flex: 0 1 400px; */
+    align-self: center;
+    width: 400px;
+    height: 400px;
+    &-more {
+      height: 138px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.3rem;
+      margin: 0.4rem 0.4rem;
+    }
+  }
+  &__desc {
+    li {
+      font-size: 0.8rem;
+      margin: 1px;
+    }
+    ul {
+      list-style: square;
+      list-style-position: inside;
+      margin: 0 0 2rem 1rem;
+    }
+  }
+}
+
+.order__box {
+  /* flex: 1 1 40%; */
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: white;
+  border-radius: $radius1;
+  margin: 0 1rem;
+  box-shadow: $shadow1;
+  align-self: start;
+  h1 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 0.7rem;
+  }
+  .btn {
+    margin: 1rem;
+  }
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: #fff; */
+
+  &__add,
+  &__sub {
+    font-size: 3rem;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  &__num {
+    max-width: 4rem;
+  }
+}
+
+.related {
+  /* flex: 1; */
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: $radius1;
+  h1 {
+    align-self: flex-start;
+  }
+  &__box {
+    width: 250px;
+    /* flex: 0; */
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__item {
+    flex: 0 0 100px;
+    margin: 0.4rem;
+    cursor: pointer;
+  }
+}
