@@ -14,11 +14,13 @@ const Products = ({ query }) => {
     error: false,
   });
   useEffect(() => {
-    console.log("eff fired");
+    // console.log("eff fired");
     // loading another page
     setHats((prev) => ({ ...prev, loading: true }));
     fetchFromAPI(`products/list?offset=${itemOffset}&${query}`)
       .then((data) => {
+        // console.log(data.payload.products);
+
         setHats({
           data: data.payload.products,
           pages: data.count,
@@ -30,7 +32,7 @@ const Products = ({ query }) => {
         console.log("API error", err);
         setHats({
           data: productsEx,
-          pages: 100,
+          pages: 48,
           loading: false,
           error: err,
         });
@@ -42,7 +44,6 @@ const Products = ({ query }) => {
   const pageCount = Math.ceil(allItems / itemsPerPage);
 
   const handlePageClick = (event) => {
-    console.log("ev", event);
     const newOffset = (event.selected * itemsPerPage) % allItems;
     setItemOffset(newOffset);
     window.scrollTo(0, 0);

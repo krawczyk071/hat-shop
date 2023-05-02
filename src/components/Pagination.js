@@ -2,7 +2,7 @@ import React from "react";
 import ReactPaginate from "react-paginate";
 
 const Pagination = ({ pageCount, handlePageClick }) => {
-  console.log("pag reload");
+  // console.log("pag reload");
   return (
     <ReactPaginate
       breakLabel="..."

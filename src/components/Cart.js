@@ -9,13 +9,15 @@ const Cart = () => {
   const [cart, dispatch] = useContext(cartContext);
   const navigate = useNavigate();
 
-  const cartItems = cart.map((item) => <CartItem item={item} />);
+  const cartItems = cart.map((item) => (
+    <CartItem item={item} key={item.webId} />
+  ));
   const total = cart.reduce((acc, itm) => {
-    return formatPrice((acc + itm.qty * itm.price) * 100);
+    return acc + itm.qty * (Number(itm.price) * 100);
   }, 0);
   function handleOrder() {
     clearCart();
-    navigate(`/confirm?${total}`);
+    navigate(`/confirm?t=${total}`);
   }
   function clearCart() {
     dispatch({ type: "CLEAR" });
@@ -27,7 +29,7 @@ const Cart = () => {
         <div className="cart__list">{cartItems}</div>
         <div className="cart__total">
           <h2>Total:</h2>
-          <h2>{total}</h2>
+          <h2>{formatPrice(total)}</h2>
         </div>
 
         <button className="btn" onClick={handleOrder}>
