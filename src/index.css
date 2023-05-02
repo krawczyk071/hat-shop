@@ -400,7 +400,8 @@ header {
   cursor: pointer;
 }
 .likeA,
-.navbar__item a {
+.navbar__item a,
+.navbar__item a:visited {
   color: var(--text1);
   text-decoration: none;
 }
