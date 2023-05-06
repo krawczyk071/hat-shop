@@ -4,8 +4,18 @@
   /* flex-direction: column; */
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 1rem;
   h1 {
     width: 100%;
+  }
+  a {
+    &,
+    &:hover,
+    &:visited,
+    &:link {
+      color: #000;
+      text-decoration: none;
+    }
   }
 }
 .colorsfilter {
@@ -26,13 +36,21 @@
     justify-content: center;
     //    box-shadow: $shadow1;
   }
-  &__color a {
+  a {
     &,
     &:hover,
     &:visited,
     &:link {
       color: #000;
       text-decoration: none;
+    }
+  }
+}
+
+@media screen and (max-width: $break-sm) {
+  .colorsfilter {
+    &__color {
+      margin: 0.3rem 0.7rem;
     }
   }
 }

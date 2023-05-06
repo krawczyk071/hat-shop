@@ -1,10 +1,10 @@
 .cart {
   display: flex;
   flex-direction: column;
+  width: 100%;
   &__box {
     display: flex;
     flex-direction: column;
-    width: 500px;
     background: silver;
     align-items: center;
   }
@@ -103,4 +103,21 @@
   z-index: 1;
   left: 0;
   top: 0;
+}
+
+@media screen and (max-width: $break-sm) {
+  .cart {
+    &__box {
+    }
+  }
+  .cartbar {
+    // position: fixed;
+    // top: 0;
+    // right: 0;
+    overflow: auto;
+    width: 100%;
+    &--closed {
+      transform: translateX(100vw);
+    }
+  }
 }

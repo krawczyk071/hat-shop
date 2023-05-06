@@ -2,30 +2,25 @@ header {
   border-bottom: 4px solid black;
 }
 .navbar {
+  margin: 0 auto;
+  max-width: 960px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  min-height: 70px;
   padding: 0 2rem;
   &__logo {
     flex: 1 1 30%;
     font-size: 2rem;
-    /* font-weight: bold; */
-    /* color: white;
-      background-color: white;
-      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, */
-    /* 1px 1px 0 #000; */
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1;
     span {
       font-family: "Modak", cursive;
-      /* font-family: "Sniglet", cursive; */
-      /* font-family: "DynaPuff", cursive; */
       font-size: 3rem;
     }
-    &-bg {
+    &__bg {
       background: white;
       border-radius: 0 0 2rem 2rem;
       padding: 1rem 3rem;
@@ -72,5 +67,52 @@ header {
   &:hover {
     color: #aa090e;
     font-weight: bold;
+  }
+}
+
+.burger__btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  .bar {
+    height: 3px;
+    width: 100%;
+    background-color: $primary;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: $break-sm) {
+  .navbar {
+    flex-direction: column;
+    &__logo {
+      order: 0;
+      &__bg {
+        border-radius: 0 0 2rem 2rem;
+        padding: 0.1rem 3rem;
+      }
+    }
+    &__list,
+    &__list:last-of-type {
+      order: 1;
+      flex-direction: column;
+      align-items: center;
+      display: none;
+    }
+    .open {
+      display: flex;
+    }
+
+    &__item {
+      margin: 0.5rem;
+    }
+    .burger__btn {
+      display: flex;
+    }
   }
 }

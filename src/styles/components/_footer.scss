@@ -43,3 +43,14 @@
     }
   }
 }
+
+@media screen and (max-width: $break-sm) {
+  .footer {
+    &__stats {
+      width: 90%;
+    }
+    &__box {
+      // margin-top: 2rem;
+    }
+  }
+}

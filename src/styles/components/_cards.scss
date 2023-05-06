@@ -14,6 +14,7 @@
 }
 
 .card__item {
+  margin: 0 auto;
   max-width: 200px;
   height: 286px;
   padding: 1rem;
@@ -30,10 +31,16 @@
   &__text {
     font-size: 0.7rem;
     overflow: hidden;
-    /* text-overflow: ellipsis;
-      height: 2rem; */
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+  }
+}
+
+@media screen and (max-width: $break-sm) {
+  .cards {
+    &__box {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }

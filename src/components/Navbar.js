@@ -4,6 +4,10 @@ import { cartContext } from "../context/cartContext";
 import CartBar from "./CartBar";
 
 const Navbar = () => {
+  const [burgerOpen, setBurgerOpen] = useState(false);
+  const toggleBurger = () => {
+    setBurgerOpen((prev) => !prev);
+  };
   const [cartOpen, setCartOpen] = useState(false);
   function cartToggler() {
     setCartOpen((prev) => !prev);
@@ -11,8 +15,8 @@ const Navbar = () => {
   const [cart] = useContext(cartContext);
   return (
     <div className="header">
-      <nav className="navbar layout-lg">
-        <ul className="navbar__list">
+      <nav className="navbar">
+        <ul className={`navbar__list ${burgerOpen ? "open" : ""}`}>
           <li className="navbar__item">
             <Link to={"/"}>Home</Link>
           </li>
@@ -24,11 +28,11 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="navbar__logo">
-          <div className="navbar__logo-bg">
+          <div className="navbar__logo__bg">
             <span>BigHead</span>
           </div>
         </div>
-        <ul className="navbar__list">
+        <ul className={`navbar__list ${burgerOpen ? "open" : ""}`}>
           <li className="navbar__item">
             <Link to={"/filtered"}>
               WinterSpecial <i className="fa-regular fa-snowflake"></i>
@@ -44,6 +48,11 @@ const Navbar = () => {
             </div>
           </li>
         </ul>
+        <button class="nobtn burger__btn" onClick={toggleBurger}>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
       </nav>
       <CartBar cartOpen={cartOpen} cartToggler={cartToggler} />
     </div>

@@ -54,3 +54,16 @@
     margin-block: 0.5rem;
   }
 }
+
+@media screen and (max-width: $break-sm) {
+  .top {
+    &__box {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .review__box {
+    display: flex;
+    flex-direction: column;
+  }
+}

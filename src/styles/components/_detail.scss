@@ -127,3 +127,25 @@
     cursor: pointer;
   }
 }
+
+@media screen and (max-width: $break-sm) {
+  .detail {
+    &__box {
+      flex-direction: column;
+    }
+  }
+  .hat__box {
+    // padding: 1rem;
+    margin: 1rem;
+  }
+  .related {
+    // flex-direction: column;
+    // align-items: center;
+
+    &__box {
+      // width: 250px;
+      // display: flex;
+      // flex-wrap: wrap;
+    }
+  }
+}
