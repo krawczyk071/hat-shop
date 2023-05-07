@@ -5,7 +5,7 @@ import { formatPrice } from "../utils/helpers";
 import { useState } from "react";
 
 const OrderBox = ({ detail }) => {
-  const [cart, dispatch] = useContext(cartContext);
+  const [, dispatch] = useContext(cartContext);
   const [qty, setQty] = useState(1);
   const addQty = (i) => {
     setQty((prev) => (prev + i > 1 ? prev + i : 1));

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Related = () => {
   const navigate = useNavigate();
   const [related, SetRelated] = useState({ data: {}, loading: true });
+
   useEffect(() => {
     SetRelated((prev) => ({ ...prev, loading: true }));
     fetchFromAPI(
@@ -19,27 +20,25 @@ const Related = () => {
       });
   }, []);
 
+  if (related.loading) {
+    return <Loader />;
+  }
+
   return (
-    <>
-      {related.loading ? (
-        <Loader />
-      ) : (
-        <div className="related">
-          <h1>Related</h1>
-          <div className="related__box">
-            {related.data.map((item) => (
-              <div
-                key={item.webID}
-                className="related__item"
-                onClick={() => navigate(`/detail/${item.webID}`)}
-              >
-                <img src={item.image.url} alt="" />
-              </div>
-            ))}
+    <div className="related">
+      <h1>Related</h1>
+      <div className="related__box">
+        {related.data.map((item) => (
+          <div
+            key={item.webID}
+            className="related__item"
+            onClick={() => navigate(`/detail/${item.webID}`)}
+          >
+            <img src={item.image.url} alt="" />
           </div>
-        </div>
-      )}
-    </>
+        ))}
+      </div>
+    </div>
   );
 };
 

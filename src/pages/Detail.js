@@ -26,6 +26,7 @@ const Detail = () => {
       })
       .catch((err) => {
         console.log("APIfail", err);
+        //Loading placeholder data
         setDetail({
           data: detailsEx.payload.products[0],
           loading: false,
@@ -49,6 +50,3 @@ const Detail = () => {
 };
 
 export default Detail;
-// SKUS.color
-// size
-// availableColr

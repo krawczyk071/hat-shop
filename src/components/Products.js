@@ -14,13 +14,9 @@ const Products = ({ query }) => {
     error: false,
   });
   useEffect(() => {
-    // console.log("eff fired");
-    // loading another page
     setHats((prev) => ({ ...prev, loading: true }));
     fetchFromAPI(`products/list?offset=${itemOffset}&${query}`)
       .then((data) => {
-        // console.log(data.payload.products);
-
         setHats({
           data: data.payload.products,
           pages: data.count,
@@ -30,6 +26,7 @@ const Products = ({ query }) => {
       })
       .catch((err) => {
         console.log("API error", err);
+        //Loading placeholder data
         setHats({
           data: productsEx,
           pages: 48,
