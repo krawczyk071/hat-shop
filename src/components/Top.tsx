@@ -1,7 +1,14 @@
 import React from "react";
 import { hotData } from "../utils/constants";
 import { useNavigate } from "react-router-dom";
-const TopItem = ({ hat }) => {
+
+interface Hat {
+  webID: string;
+  url: string;
+  price: string;
+}
+
+const TopItem = ({ hat }: { hat: Hat }) => {
   const navigate = useNavigate();
 
   return (
@@ -15,7 +22,7 @@ const TopItem = ({ hat }) => {
 };
 
 const Top = () => {
-  const hots = hotData.map((h) => <TopItem key={h.webID} hat={h} />);
+  const hots = hotData.map((h: Hat) => <TopItem key={h.webID} hat={h} />);
   return (
     <div className="top">
       <h2>Hottest Items:</h2>
