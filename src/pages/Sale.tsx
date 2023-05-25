@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Products from "../components/Products";
 import { useSearchParams } from "react-router-dom";
-import ColorsFilter from "../components/ColorsFilter";
-const Shop = () => {
+import NbaFilter from "../components/NbaFilter";
+
+const Sale = () => {
   const [searchParams] = useSearchParams();
   const [team, setTeam] = useState("");
 
   useEffect(() => {
-    setTeam(searchParams.get("dimensionValueID"));
+    setTeam(searchParams.get("dimensionValueID") || "");
   }, [searchParams]);
   return (
     <>
-      <ColorsFilter />
+      <NbaFilter />
       <Products query={`dimensionValueID=${team}`} />
     </>
   );
 };
 
-export default Shop;
+export default Sale;

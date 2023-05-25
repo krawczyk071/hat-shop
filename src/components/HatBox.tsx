@@ -1,6 +1,11 @@
 import React from "react";
 
-const HatBox = ({ detail }) => {
+import { Product } from "../utils/interfaceDetails";
+
+type HBParams = {
+  detail: Product;
+};
+const HatBox = ({ detail }: HBParams) => {
   const photos = detail.altImages
     .map((i) => i.url.replace(/=50/g, "=180"))
     .slice(0, -1)

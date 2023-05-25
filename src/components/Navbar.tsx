@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { cartContext } from "../context/cartContext";
 import CartBar from "./CartBar";
@@ -41,17 +41,19 @@ const Navbar = () => {
           <li className="navbar__item" onClick={cartToggler}>
             <div className="likeA">
               Basket (
-              {cart.reduce((acc, item) => {
-                return acc + item.qty;
-              }, 0)}
+              {cart.length > 0
+                ? cart.reduce((acc: number, item: { qty: number }) => {
+                    return acc + item.qty;
+                  }, 0)
+                : 0}
               )
             </div>
           </li>
         </ul>
-        <button class="nobtn burger__btn" onClick={toggleBurger}>
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+        <button className="nobtn burger__btn" onClick={toggleBurger}>
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
         </button>
       </nav>
       <CartBar cartOpen={cartOpen} cartToggler={cartToggler} />

@@ -1,4 +1,33 @@
-export const nbaTeams = [
+type Reviews = {
+  rating: number;
+  short: string;
+  name: string;
+  text: string;
+}[];
+
+type Teams = string[];
+
+type Hot = {
+  webID: number;
+  productTitle: string;
+  price: string;
+  url: string;
+}[];
+
+export type Filter = {
+  items: { name: string; value: string }[];
+  placeholder: string;
+  queryName: string;
+};
+
+type Values = {
+  name: string;
+  value: string;
+}[];
+
+type FilterValuesType = { purpose: string; rentFrequency: string };
+
+export const nbaTeams: Teams = [
   "Atlanta Hawks",
   "Boston Celtics",
   "Brooklyn Nets",
@@ -31,7 +60,7 @@ export const nbaTeams = [
   "Washington Wizards",
 ];
 
-export const hotData = [
+export const hotData: Hot = [
   {
     webID: 5845569,
     productTitle:
@@ -54,7 +83,7 @@ export const hotData = [
     url: "https://media.kohlsimg.com/is/image/kohls/4609980?wid=180&hei=180&op_sharpen=1",
   },
 ];
-export const reviewData = [
+export const reviewData: Reviews = [
   {
     text: "Men's Blitzing Cap is a must-have accessory for anyone with a love of caps. In addition to its durability, this cap's design ensures a snug and comfortable fit. You'll stay cool and dry thanks to a built-in HeatGear® sweatband and breathable threads. The UA Blitzing Cap is the perfect accessory to look your best and exhibit your love for baseball caps.",
     short:
@@ -99,7 +128,7 @@ export const filterData = [
     queryName: "SportsTeam",
   },
 ];
-export const getFilterValues = (filterValues) => {
+export const getFilterValues = (filterValues: FilterValuesType): Values => {
   const { purpose, rentFrequency } = filterValues;
 
   const values = [
@@ -115,13 +144,13 @@ export const getFilterValues = (filterValues) => {
   return values;
 };
 
-export const nbaFilter = {
+export const nbaFilter: Filter = {
   items: nbaTeams.map((t) => ({ name: t, value: "SportsTeam:" + t })),
   placeholder: "Select Your Team",
   queryName: "dimensionValueID",
 };
 
-export const colors = [
+export const colors: string[] = [
   "Black",
   "Blue",
   "Green",

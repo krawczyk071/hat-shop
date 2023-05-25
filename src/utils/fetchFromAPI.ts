@@ -1,4 +1,6 @@
 import axios from "axios";
+import { APIlist } from "./interfaceList";
+import { APIdetail } from "./interfaceDetails";
 
 const BASE_URL = "https://kohls.p.rapidapi.com";
 
@@ -25,12 +27,30 @@ const options = {
   },
 };
 
-export const fetchFromAPI = async (url) => {
-  const { data } = await axios.get(`${BASE_URL}/${url}`, options);
+export const fetchFromAPIProducts = async (url: string) => {
+  const { data }: { data: APIlist } = await axios.get(
+    `${BASE_URL}/${url}`,
+    options
+  );
   // console.log(data);
   return data;
 };
-
+export const fetchFromAPIDetails = async (url: string) => {
+  const { data }: { data: APIdetail } = await axios.get(
+    `${BASE_URL}/${url}`,
+    options
+  );
+  // console.log(data);
+  return data;
+};
+export const fetchFromAPIReviews = async (url: string) => {
+  const { data }: { data: string } = await axios.get(
+    `${BASE_URL}/${url}`,
+    options
+  );
+  // console.log(data);
+  return data;
+};
 // categories/list
 // products/list
 // products/detail

@@ -2,6 +2,9 @@
   "compilerOptions": {
     "jsx": "react",
     "moduleResolution": "node",
+
+    "composite": true,
+    "lib": ["dom", "dom.iterable"],
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */

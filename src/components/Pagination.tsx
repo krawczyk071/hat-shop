@@ -1,7 +1,12 @@
 import React from "react";
 import ReactPaginate from "react-paginate";
 
-const Pagination = ({ pageCount, handlePageClick }) => {
+type PaginationProps = {
+  pageCount: number;
+  handlePageClick: (event: any) => void;
+};
+
+const Pagination = ({ pageCount, handlePageClick }: PaginationProps) => {
   // console.log("pag reload");
   return (
     <ReactPaginate

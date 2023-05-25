@@ -1,7 +1,7 @@
 import React from "react";
 // import { filterData } from "../utils/constants";
 import { useSearchParams } from "react-router-dom";
-
+import { Filter as Ftype } from "../utils/constants";
 // const FilterMany = () => {
 //   const navigate = useNavigate();
 //   const [filters] = useState(filterData);
@@ -31,7 +31,10 @@ import { useSearchParams } from "react-router-dom";
 //   );
 // };
 
-const Filter = ({ data }) => {
+type FilterParams = {
+  data: Ftype;
+};
+const Filter = ({ data }: FilterParams) => {
   // const navigate = useNavigate();
   const [, setSearchParams] = useSearchParams();
 
@@ -47,7 +50,7 @@ const Filter = ({ data }) => {
             }
             placeholder={data.placeholder}
           >
-            {data?.items?.map((item) => (
+            {data?.items.map((item) => (
               <option value={item.value} key={item.value}>
                 {item.name}
               </option>

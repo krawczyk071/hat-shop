@@ -1,7 +1,12 @@
 import React from "react";
 import Cart from "./Cart";
 
-const CartBar = ({ cartOpen, cartToggler }) => {
+type CartBarProps = {
+  cartToggler: () => void;
+  cartOpen: boolean;
+};
+
+const CartBar = ({ cartOpen, cartToggler }: CartBarProps) => {
   return (
     <div
       className={`cartbar ${!cartOpen ? "cartbar--closed" : "cartbar--opened"}`}

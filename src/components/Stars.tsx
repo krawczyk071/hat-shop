@@ -1,6 +1,8 @@
 import React from "react";
 
-const Stars = ({ rating }) => {
+type StarsType = { rating: number };
+
+const Stars = ({ rating }: StarsType) => {
   const coloring = (max = 5) => {
     const full = Math.floor(rating);
     const starArr = [];

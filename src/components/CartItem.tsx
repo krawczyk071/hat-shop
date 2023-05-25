@@ -1,7 +1,12 @@
 import React from "react";
 import QtySelector from "./QtySelector";
+import { Product } from "../utils/interfaceDetails";
 
-const CartItem = ({ item }) => {
+type CartItemParams = {
+  item: Product;
+};
+
+const CartItem = ({ item }: CartItemParams) => {
   return (
     <div className="cart__list__item">
       <div className="cart__list__item__photo">
@@ -11,11 +16,7 @@ const CartItem = ({ item }) => {
         />
       </div>
       <h3 className="cart__list__item__name">{item.productTitle}</h3>
-      <QtySelector
-        product={item}
-        where="cart"
-        className="cart__list__item__qty"
-      />
+      <QtySelector product={item} where="cart" />
       {/* <div className="cart__list__item__qty">
         <div className="cart__list__item__qty__pm">+</div>
         <div className="cart__list__item__qty__num">

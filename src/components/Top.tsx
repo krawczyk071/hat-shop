@@ -2,13 +2,7 @@ import React from "react";
 import { hotData } from "../utils/constants";
 import { useNavigate } from "react-router-dom";
 
-interface Hat {
-  webID: string;
-  url: string;
-  price: string;
-}
-
-const TopItem = ({ hat }: { hat: Hat }) => {
+const TopItem = ({ hat }) => {
   const navigate = useNavigate();
 
   return (

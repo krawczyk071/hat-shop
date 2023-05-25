@@ -1,19 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { fetchFromAPI } from "../utils/fetchFromAPI";
+import { fetchFromAPIProducts } from "../utils/fetchFromAPI";
 import Loader from "./Loader";
 import { useNavigate } from "react-router-dom";
+import { Product } from "../utils/interfaceList";
+
+type RelState = {
+  data: Product[];
+  loading: boolean;
+  error: boolean;
+};
 
 const Related = () => {
   const navigate = useNavigate();
-  const [related, SetRelated] = useState({ data: {}, loading: true });
+  const [related, SetRelated] = useState<RelState>({
+    data: [],
+    loading: true,
+    error: false,
+  });
 
   useEffect(() => {
     SetRelated((prev) => ({ ...prev, loading: true }));
-    fetchFromAPI(
+    fetchFromAPIProducts(
       `products/list?limit=6&offset=${Math.floor(Math.random() * 50)}`
     )
       .then((data) =>
-        SetRelated({ data: data.payload.products, loading: false })
+        SetRelated({
+          data: data.payload.products,
+          loading: false,
+          error: false,
+        })
       )
       .catch((err) => {
         console.log("API fail", err);

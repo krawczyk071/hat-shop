@@ -1,14 +1,23 @@
 import React, { useContext } from "react";
-import { cartContext } from "../context/cartContext";
+import { DispatchContext, cartContext } from "../context/cartContext";
+import { Product } from "../utils/interfaceDetails";
 
-const QtySelector = ({ product, where, qty, addQty }) => {
-  const [cart, dispatch] = useContext(cartContext);
+type QtyProps = {
+  product: Product;
+  where?: string;
+  qty?: number;
+  addQty?: (i: number) => void;
+};
+
+const QtySelector = ({ product, where, qty, addQty }: QtyProps) => {
+  const cart = useContext(cartContext);
+  const dispatch = useContext(DispatchContext);
   return (
     <div className={where === "cart" ? "cart__list__item__qty" : "qty"}>
       <div
         className={where === "cart" ? "cart__list__item__qty__pm" : "qty__add"}
         onClick={() =>
-          where !== "cart"
+          where !== "cart" && addQty
             ? addQty(1)
             : dispatch({
                 type: "ADD_TO_CART",
@@ -27,7 +36,7 @@ const QtySelector = ({ product, where, qty, addQty }) => {
           value={
             where !== "cart"
               ? qty
-              : cart.find((i) => i.webID === product.webID)?.qty || 0
+              : (cart && cart.find((i) => i.webID === product.webID)?.qty) || 0
           }
           readOnly
         />
@@ -36,7 +45,7 @@ const QtySelector = ({ product, where, qty, addQty }) => {
         className={where === "cart" ? "cart__list__item__qty__pm" : "qty__sub"}
         onClick={() =>
           where !== "cart"
-            ? addQty(-1)
+            ? addQty && addQty(-1)
             : dispatch({
                 type: "SUB_FROM_CART",
                 payload: { item: product, qty: -1 },

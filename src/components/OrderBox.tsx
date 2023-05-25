@@ -1,13 +1,18 @@
 import React, { useContext } from "react";
-import { cartContext } from "../context/cartContext";
+import { DispatchContext } from "../context/cartContext";
 import QtySelector from "./QtySelector";
 import { formatPrice } from "../utils/helpers";
 import { useState } from "react";
+import { Product } from "../utils/interfaceDetails";
 
-const OrderBox = ({ detail }) => {
-  const [, dispatch] = useContext(cartContext);
+type OBParams = {
+  detail: Product;
+};
+
+const OrderBox = ({ detail }: OBParams) => {
+  const dispatch = useContext(DispatchContext);
   const [qty, setQty] = useState(1);
-  const addQty = (i) => {
+  const addQty = (i: number) => {
     setQty((prev) => (prev + i > 1 ? prev + i : 1));
   };
 

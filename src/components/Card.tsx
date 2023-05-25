@@ -1,8 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { formatPrice } from "../utils/helpers";
+import { Product } from "../utils/interfaceList";
 
-const Card = ({ hat }) => {
+type CardProps = {
+  hat: Product;
+};
+
+const Card = ({ hat }: CardProps) => {
   const navigate = useNavigate();
   return (
     <div
@@ -13,7 +18,7 @@ const Card = ({ hat }) => {
         <img src={hat.image ? hat.image.url : "non"} alt="" />
       </div>
       <h3 className="card__item__price">
-        {formatPrice(hat.prices[0].regularPrice.minPrice * 100)}
+        {formatPrice((hat?.prices[0].regularPrice.minPrice || 0) * 100)}
       </h3>
       <p className="card__item__text">{hat.productTitle}</p>
     </div>

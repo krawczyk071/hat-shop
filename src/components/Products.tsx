@@ -1,21 +1,34 @@
 import React, { useEffect, useState } from "react";
+import { fetchFromAPIProducts } from "../utils/fetchFromAPI";
+import { products as productsEx } from "../utils/apiExample";
 import Card from "./Card";
-
-import { fetchFromAPI } from "../utils/fetchFromAPI";
 import Loader from "./Loader";
 import Pagination from "./Pagination";
-import { products as productsEx } from "../utils/apiExample";
+import { Product } from "../utils/interfaceList";
 
-const Products = ({ query }) => {
+type ProductProps = {
+  query: string;
+};
+
+type HatsState = {
+  data: Product[];
+  loading: boolean;
+  error: boolean;
+  pages: number | null;
+};
+
+const Products = ({ query }: ProductProps) => {
   const [itemOffset, setItemOffset] = useState(0);
-  const [hats, setHats] = useState({
-    data: {},
+  const [hats, setHats] = useState<HatsState>({
+    data: [],
     loading: true,
     error: false,
+    pages: 0,
   });
+
   useEffect(() => {
     setHats((prev) => ({ ...prev, loading: true }));
-    fetchFromAPI(`products/list?offset=${itemOffset}&${query}`)
+    fetchFromAPIProducts(`products/list?offset=${itemOffset}&${query}`)
       .then((data) => {
         setHats({
           data: data.payload.products,
@@ -36,11 +49,11 @@ const Products = ({ query }) => {
       });
   }, [query, itemOffset]);
 
-  const allItems = hats.pages;
+  const allItems = hats.pages || 0;
   const itemsPerPage = 24;
-  const pageCount = Math.ceil(allItems / itemsPerPage);
+  const pageCount = Math.ceil((allItems || 0) / itemsPerPage);
 
-  const handlePageClick = (event) => {
+  const handlePageClick = (event: { selected: number }) => {
     const newOffset = (event.selected * itemsPerPage) % allItems;
     setItemOffset(newOffset);
     window.scrollTo(0, 0);

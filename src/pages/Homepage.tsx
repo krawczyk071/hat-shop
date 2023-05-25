@@ -10,7 +10,6 @@ const Homepage = () => {
     <>
       <Hero />
       <Top />
-
       <Headline />
       <Banner />
       <Reviews />

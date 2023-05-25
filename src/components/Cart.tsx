@@ -1,20 +1,23 @@
 import React, { useContext } from "react";
 
 import CartItem from "./CartItem";
-import { cartContext } from "../context/cartContext";
+import { DispatchContext, cartContext } from "../context/cartContext";
 import { useNavigate } from "react-router-dom";
-import { formatPrice } from "../utils/helpers.js";
+import { formatPrice } from "../utils/helpers";
 
 const Cart = () => {
-  const [cart, dispatch] = useContext(cartContext);
+  const cart = useContext(cartContext);
+  const dispatch = useContext(DispatchContext);
   const navigate = useNavigate();
 
-  const cartItems = cart.map((item) => (
-    <CartItem item={item} key={item.webId} />
-  ));
-  const total = cart.reduce((acc, itm) => {
-    return acc + itm.qty * (Number(itm.price) * 100);
-  }, 0);
+  const cartItems =
+    cart && cart.map((item) => <CartItem item={item} key={item.webID} />);
+  const total =
+    cart &&
+    cart.reduce((acc, itm) => {
+      return acc + itm.qty * (Number(itm.price) * 100);
+    }, 0);
+
   function handleOrder() {
     clearCart();
     navigate(`/confirm?t=${total}`);
@@ -22,6 +25,7 @@ const Cart = () => {
   function clearCart() {
     dispatch({ type: "CLEAR" });
   }
+
   return (
     <div className="cart">
       <div className="cart__box">
