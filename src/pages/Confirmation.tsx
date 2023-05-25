@@ -7,7 +7,7 @@ const Confirmation = () => {
   // console.log(searchParams);
   return (
     <div className="confirm">
-      <h2>Please pay {formatPrice(searchParams.get("t"))}</h2>
+      <h2>Please pay {formatPrice(Number(searchParams.get("t")))}</h2>
       <h1>You will recieve your order soon</h1>
     </div>
   );

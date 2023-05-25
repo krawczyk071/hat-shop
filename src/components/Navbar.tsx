@@ -12,7 +12,7 @@ const Navbar = () => {
   function cartToggler() {
     setCartOpen((prev) => !prev);
   }
-  const [cart] = useContext(cartContext);
+  const cart = useContext(cartContext);
   return (
     <div className="header">
       <nav className="navbar">
@@ -41,7 +41,7 @@ const Navbar = () => {
           <li className="navbar__item" onClick={cartToggler}>
             <div className="likeA">
               Basket (
-              {cart.length > 0
+              {cart
                 ? cart.reduce((acc: number, item: { qty: number }) => {
                     return acc + item.qty;
                   }, 0)

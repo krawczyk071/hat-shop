@@ -2,7 +2,17 @@ import React from "react";
 import { hotData } from "../utils/constants";
 import { useNavigate } from "react-router-dom";
 
-const TopItem = ({ hat }) => {
+type Hat = {
+  webID: number;
+  productTitle: string;
+  price: string;
+  url: string;
+};
+type Props = {
+  hat: Hat;
+};
+
+const TopItem: React.FC<Props> = ({ hat }) => {
   const navigate = useNavigate();
 
   return (
