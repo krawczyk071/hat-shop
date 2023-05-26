@@ -4,6 +4,7 @@ import QtySelector from "./QtySelector";
 import { formatPrice } from "../utils/helpers";
 import { useState } from "react";
 import { Product } from "../utils/interfaceDetails";
+import { toast } from "react-hot-toast";
 
 type OBParams = {
   detail: Product;
@@ -33,7 +34,7 @@ const OrderBox = ({ detail }: OBParams) => {
             payload: { item: detail, qty: qty },
           });
           setQty(1);
-          alert("Added to basket");
+          toast.success("Added to basket");
         }}
       >
         Add to order
